@@ -16,14 +16,14 @@ elseif (filetype == "c" || filetype == "h")
 endif
 unlet b:current_syntax
 
-syn match gcov_count '^\s*\d\+'
-syn match gcov_sep   '^\s*[0-9\-]*:'         contains=gcov_count
-syn match gcov_gap   '^\s*[0-9\-]*:\s*'      contains=gcov_sep
-syn match gcov_line  '^\s*[0-9\-]*:\s*\d\+'  contains=gcov_gap
-syn match gcov_final '^\s*[0-9\-]*:\s*\d\+:' contains=gcov_line
+syn match gcov_count '^\s*[0-9kMGTP]\+'
+syn match gcov_sep   '^\s*[0-9kMGTP\-]*:'         contains=gcov_count
+syn match gcov_gap   '^\s*[0-9kMGTP\-]*:\s*'      contains=gcov_sep
+syn match gcov_line  '^\s*[0-9kMGTP\-]*:\s*\d\+'  contains=gcov_gap
+syn match gcov_final '^\s*[0-9kMGTP\-]*:\s*\d\+:' contains=gcov_line
 
 syn match gcov_uncovered '^\s*#####.*$'
-syn match gcov_uncovered '^\s*\d\+\*.*$'
+syn match gcov_uncovered '^\s*[0-9kMGTP]\+\*.*$'
 
 hi link gcov_count     Normal
 hi link gcov_sep       LineNr
